@@ -31,14 +31,14 @@ totalsteps<-ddply(totalsteps_data,.(date),summarise,total_step=sum(steps))
       2.If you do not understand the difference between a histogram and a barplot, research the difference between them. Make a histogram of the total number of steps taken each day
 
 ```r
-png("./instructions_fig/fig1.png")
+#png("./instructions_fig/fig1.png")
 hist(totalsteps$total_step,xlab = "Total Steps",main="Histogram of the total number of steps taken each day")
-dev.off()
 ```
 
-```
-## png 
-##   2
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png) 
+
+```r
+#dev.off()
 ```
      
      
@@ -66,14 +66,14 @@ median(totalsteps$total_step)
 
 ```r
 time_plot_data<-ddply(totalsteps_data,.(interval),summarise,avg_steps=mean(steps))
-png("./instructions_fig/fig2.png")
+#png("./instructions_fig/fig2.png")
 ggplot(time_plot_data,aes(interval,avg_steps))+geom_line()+xlab("5-minute interval")+ylab("Avg steps avged across all days")+ggtitle("Histogram of the total number of steps taken each day")
-dev.off()
 ```
 
-```
-## png 
-##   2
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png) 
+
+```r
+#dev.off()
 ```
      
      
@@ -114,17 +114,14 @@ totalsteps_withoutNA<-ddply(tdr_data,.(date),summarise,total_step=sum(steps))
       4.Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
 
 ```r
-png("./instructions_fig/fig3.png")
+#png("./instructions_fig/fig3.png")
 hist(totalsteps_withoutNA$total_step,main="Histogram of the total number of steps taken each day",xlab = "Total Steps")
-dev.off()
 ```
 
-```
-## png 
-##   2
-```
+![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12-1.png) 
 
 ```r
+#dev.off()
 mean(totalsteps_withoutNA$total_step)
 ```
 
@@ -149,13 +146,13 @@ For this part the weekdays() function may be of some help here. Use the dataset 
       2.Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). See the README file in the GitHub repository to see an example of what this plot should look like using simulated data.
 
 ```r
-png("./instructions_fig/fig4.png")
+#png("./instructions_fig/fig4.png")
 ggplot(diff_days,aes(x=interval,y=avg_steps))+geom_line()+facet_wrap(~wDay,nrow=2)+xlab("5-minute interval")+ylab("Avg steps avged across all days")+ggtitle("Time series Plot")
-dev.off()
 ```
 
-```
-## png 
-##   2
+![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14-1.png) 
+
+```r
+#dev.off()
 ```
 
